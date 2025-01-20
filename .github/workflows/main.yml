@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 jobs:
   ci:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
       - name: Autenticar no Docker Hub
         run: echo "Executando o comando Docker login"
@@ -15,7 +15,7 @@ jobs:
       - name: Envio da Imagem Docker
         run: echo "Executando o comando Docker push"
   cd:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
       - name: Autenticar na AWS
         run: echo "Executando o comando AWS configure"
