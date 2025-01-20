@@ -17,11 +17,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Construção da Imagem Docker
-        run: echo "Executando o comando Docker Build"
+      - name: Construção e envio da Imagem Docker
+        uses: docker/build-push-action@v6
+        with:
+          context: "./src"
+          push: true
+          file: ./src/Dockerfile
+          tags: leoamorimr/fake-shop:v${{github.run_number}}
 
-      - name: Envio da Imagem Docker
-        run: echo "Executando o comando Docker push"
   cd:
     runs-on: ubuntu-latest
     steps:
